@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QQ签到领积分 ✨</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome（可爱图标） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 自定义Tailwind配色（可爱粉白） -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cutePink: '#ff9edf',
+            cuteLightPink: '#ffeaf5',
+            cuteBlue: '#9ee0ff',
+            cuteYellow: '#fff39e',
+            cuteBg: '#fffdf7'
+          },
+          fontFamily: {
+            cute: ['Comic Sans MS', 'Microsoft YaHei', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cuteBg min-h-screen flex flex-col items-center justify-center p-4 font-cute">
+  <!-- 可爱标题 -->
+  <div class="text-center mb-8">
+    <h1 class="text-[2rem] font-bold text-cutePink flex items-center justify-center gap-2">
+      <i class="fas fa-gift fa-bounce"></i> QQ签到领积分 ✨
+    </h1>
+    <p class="text-gray-600 mt-2">每日签到一次，积分轻松领～</p>
+  </div>
+
+  <!-- 核心操作卡片 -->
+  <div class="bg-white rounded-2xl shadow-lg shadow-cutePink/20 p-6 w-full max-w-md border border-cuteLightPink">
+    <div class="mb-4">
+      <label for="qqNum" class="block text-gray-700 mb-2 flex items-center gap-2">
+        <i class="fas fa-qq text-cuteBlue"></i> 你的QQ号
+      </label>
+      <input 
+        type="text" 
+        id="qqNum" 
+        placeholder="请输入QQ号（纯数字）"
+        class="w-full px-4 py-3 rounded-xl border border-cuteLightPink focus:outline-none focus:ring-2 focus:ring-cutePink/50 focus:border-cutePink transition-all"
+      >
+    </div>
+
+    <!-- 操作按钮 -->
+    <div class="flex gap-3 mt-6">
+      <button id="signBtn" class="flex-1 bg-cutePink text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-cutePink/80 transition-all shadow-sm shadow-cutePink/30">
+        <i class="fas fa-hand-sparkles"></i> 立即签到
+      </button>
+      <button id="queryBtn" class="flex-1 bg-cuteLightPink text-cutePink py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-cuteLightPink/80 transition-all shadow-sm shadow-cutePink/20">
+        <i class="fas fa-search"></i> 查询积分
+      </button>
+    </div>
+  </div>
+
+  <!-- 后台入口（小字体，低调） -->
+  <div class="mt-6 text-sm text-gray-500">
+    <a href="admin.html" class="hover:text-cutePink transition-all flex items-center gap-1">
+      <i class="fas fa-cog"></i> 管理员入口
+    </a>
+  </div>
+
+  <!-- 弹窗遮罩 -->
+  <div id="modalMask" class="fixed inset-0 bg-black/30 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-2xl p-6 w-full max-w-sm border border-cuteLightPink shadow-lg">
+      <div id="modalIcon" class="text-center text-3xl mb-3 text-cutePink">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <p id="modalText" class="text-center text-gray-700 font-bold">签到成功！获得10积分～</p>
+      <button id="closeModal" class="w-full mt-4 bg-cutePink text-white py-2 rounded-xl font-bold hover:bg-cutePink/80 transition-all">
+        确定
+      </button>
+    </div>
+  </div>
+
+  <!-- JS引入 -->
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
