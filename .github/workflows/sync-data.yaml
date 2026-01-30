@@ -1,0 +1,25 @@
+姓名：同步签到积分数据
+在……之上:
+推:
+分支机构: [主要的] #主分支，若为掌握请修改
+路径: [config.json,users.json] # 仅监听数据文件
+
+工作:
+同步数据:
+连续的: Ubuntu-最新
+步骤:
+      - 姓名: 拉取仓库代码
+uses: 操作/结帐@v4
+和……一起:
+提取深度: 0
+裁判: 主要的
+
+      - 姓名: 同步到备份分支
+跑: |
+git配置-全局用户。名称"GitHub操作”
+git配置-全局用户。电子邮件"actions@github.com"
+git签出-b备份||git签出备份
+GITRA原点主--重基
+git推送原点备份-f
+env:
+GitHub_TOKEN: ${{secrets.GITHUB_TOKEN}} #GitHub自动提供，无需配置
